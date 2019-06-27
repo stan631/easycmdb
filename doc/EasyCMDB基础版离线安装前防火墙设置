@@ -1,12 +1,12 @@
 # EasyCMDB基础版离线安装防火墙设置
 
 ## 系统防火墙设置
-如不能连通4200端口
+安装前如不能连通4200端口，安装后需要80端口
 
 firewall-cmd --query-port=4200/tcp
 
 firewall-cmd --add-port=4200/tcp --permanent 
-
+firewall-cmd --add-port=80/tcp --permanent 
 firewall-cmd --reload 
  
 [root@localhost tmp]# firewall-cmd --query-port=4200/tcp
@@ -14,12 +14,13 @@ firewall-cmd --reload
 no 提示no表示未开
 
 [root@localhost tmp]# firewall-cmd --add-port=4200/tcp --permanent 
-
+[root@localhost tmp]# firewall-cmd --add-port=80/tcp --permanent 
 success 提示success 表示成功
 
 [root@localhost tmp]#  firewall-cmd --reload 
 
 success  提示success表示应用新规则成功
+
 
 更简单粗暴的方式就是停止防火墙
 
